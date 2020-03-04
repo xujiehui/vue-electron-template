@@ -1,0 +1,51 @@
+{
+  "name": "{{ name }}",
+  "version": "1.0.0",
+  "description": "{{ description }}",
+  "private": true,
+  "scripts": {
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "vue": "^2.6.11",
+    {{#with plugins.router}}
+    "vue-router": "^3.1.5",
+    {{/with}}
+    {{#with plugins.vuex}}
+    "vuex": "^3.1.2",
+    {{/with}}
+    {{#if_eq DB "nedb"}}
+    "nedb": "^1.8.0",
+    {{/if_eq}}
+    {{#if_eq DB "sqlite3"}}
+    "sqlite3": "^4.0.9",
+    {{/if_eq}}
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.2.0",
+    "@vue/cli-service": "^4.2.0",
+    "electron": "^6.0.0",
+    {{#if_eq cssProcessors "dartSass"}}
+    "sass": "^1.25.0",
+    "sass-loader": "^8.0.2",
+    {{/if_eq}}
+    {{#if_eq cssProcessors "nodeSass"}}
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    {{/if_eq}}
+    {{#if_eq cssProcessors "less"}}
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    {{/if_eq}}
+    {{#if_eq cssProcessors "stylus"}}
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    {{/if_eq}}
+    "vue-cli-plugin-electron-builder": "^1.4.5",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
