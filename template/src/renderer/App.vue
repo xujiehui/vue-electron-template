@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    {{#with plugins.router}}
+    {{#if plugins.router}}
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -9,13 +9,13 @@
     {{else}}
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    {{/with}}
+    {{/if}}
   </div>
 </template>
 
-{{#with plugins.router}}
-<style{{#with plugins.cssProcessors}} lang="{{#if_or cssProcessor "dartSass" "nodeSass"}}scss{{else}}{{cssProcessor}}{{/if_or}}"{{/with}}>
-{{#with plugins.cssProcessors}}
+{{#if plugins.router}}
+<style{{#if cssProcessors}} lang="{{#if_or cssProcessors "dartSass" "nodeSass"}}scss{{else}}{{cssProcessors}}{{/if_or}}"{{/if}}>
+{{#if plugins.cssProcessors}}
 {{#if_eq cssProcessors "stylus"}}
 #app
   font-family Avenir, Helvetica, Arial, sans-serif
@@ -67,7 +67,7 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-{{/with}}
+{{/if}}
 </style>
 {{else}}
 <script>
@@ -81,8 +81,8 @@ export default {
 }
 </script>
 
-<style {{#with plugins.cssProcessors}}lang="{{#if_or cssProcessor "dartSass" "nodeSass"}}scss{{else}}{{cssProcessors}}{{/if_or}}"{{/with}}>
-{{#with plugins.cssProcessors}}
+<style{{#if cssProcessors}} lang="{{#if_or cssProcessors "dartSass" "nodeSass"}}scss{{else}}{{cssProcessors}}{{/if_or}}"{{/if}}>
+{{#if cssProcessors}}
 {{#if_eq cssProcessors "stylus"}}
 #app
   font-family Avenir, Helvetica, Arial, sans-serif
@@ -108,6 +108,6 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-{{/with}}
+{{/if}}
 </style>
-{{/with}}
+{{/if}}
