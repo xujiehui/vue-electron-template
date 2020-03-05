@@ -19,10 +19,10 @@
     "vuex": "^3.1.2",
     {{/with}}
     {{#if_eq DB "nedb"}}
-    "nedb": "^1.8.0",
+    "nedb": "^1.8.0"
     {{/if_eq}}
     {{#if_eq DB "sqlite3"}}
-    "sqlite3": "^4.0.9",
+    "sqlite3": "^4.0.9"
     {{/if_eq}}
   },
   "devDependencies": {
@@ -45,6 +45,7 @@
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     {{/if_eq}}
+    "output-compile-time-webpack-plugin": "^1.0.2",
     "vue-cli-plugin-electron-builder": "^1.4.5",
     "vue-template-compiler": "^2.6.11"
   }
